@@ -59,14 +59,6 @@ builder.Services.Configure<AuthenticationSettingsME>(builder.Configuration.GetSe
 builder.Services.AddAuthentication("BasicAuthentication")
     .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
 
-//builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-//    .AddCookie(options =>
-//    {
-//        options.LoginPath = "/Account/Login"; // Ruta para redirigir al usuario no autenticado
-//        options.LogoutPath = "/Account/Logout";
-//    });
-
-
 // Configuración de repositorio
 builder.Services.AddScoped<IContractRepository>(provider =>
 {
