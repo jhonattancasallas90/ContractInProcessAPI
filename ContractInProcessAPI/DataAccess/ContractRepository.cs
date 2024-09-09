@@ -85,11 +85,11 @@ namespace ContractInProcessAPI.DataAccess
                     {
                         var empleado = new EmpleadoME
                         {
-                            Import_Id = count.ToString(),
-                            Fecha_Creacion = DateTime.Now.ToString(),
-                            Creado_Por_Id = Convert.ToString(result.CREATEDBY),
+                            ImportId = count.ToString(),
+                            CreationDate = DateTime.Now.ToString(),
+                            CreatedBy = Convert.ToString(result.CREATEDBY),
 
-                            Contrato_Concatenado = Convert.ToString(result.CONCATENATED_CONTRACTS),
+                            AlternativeId = Convert.ToString(result.CONCATENATED_CONTRACTS),
                             Version = "1",
                             Prototipo = "AQUI VA EL NOMBRE DE CONTRATO EN CADENA DE TEXTO", // Modificar según tus necesidades
 
@@ -99,8 +99,8 @@ namespace ContractInProcessAPI.DataAccess
                             Fecha_Expedicion_Empleado = Convert.ToString(result.FECHA_EXPEDICION),
                             Pais_Expedicion_DIAN = Convert.ToString(result.PAIS_EXPEDICION_DIAN),
                             Departamento_Expedicion_DANE = Convert.ToString(result.DPTO_EXPEDICION_DANE),
-                            Municipio_Expedicion = Convert.ToString(result.MUNICIPIO_EXPEDICION),
-                            Ciudad_Expedicion = await DeterminarCiudadesKactus(
+                            Ciudad_Expedicion = Convert.ToString(result.MUNICIPIO_EXPEDICION),
+                            Municipipo_Expedicion_DANE = await DeterminarCiudadesKactus(
                                 Convert.ToString(result.PAIS_EXPEDICION_DIAN),
                                 Convert.ToString(result.DPTO_EXPEDICION_DANE),
                                 Convert.ToString(result.MUNICIPIO_EXPEDICION)

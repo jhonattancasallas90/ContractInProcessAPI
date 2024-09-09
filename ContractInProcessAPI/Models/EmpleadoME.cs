@@ -3,10 +3,10 @@
     public class EmpleadoME
     {
         // POSIBLES DATOS A IMPLEMENTAR  Al convertir validar el tipo de dato
-        public string? Import_Id { get; set; }
-        public string? Fecha_Creacion { get; set; } // <--  CLASE NUEVA - CreationDate en DB
-        public string? Creado_Por_Id { get; set; }   // <-- CLASE NUEVA - CreatedBy (Por validar)
-        public string? Contrato_Concatenado { get; set; }   // <-- AlternativeId - STRING (I-1030587912-1-01) - Presuntamente es la concatenacion de CC + Tipo de Contrato - No se sabe si de agente o inscrito
+        public string? ImportId { get; set; }
+        public string? CreationDate { get; set; } // <--  CLASE NUEVA - CreationDate en DB
+        public string? CreatedBy { get; set; }   // <-- CLASE NUEVA - CreatedBy (Por validar)
+        public string? AlternativeId { get; set; }   // <-- AlternativeId - STRING (I-1030587912-1-01) - Presuntamente es la concatenacion de CC + Tipo de Contrato - No se sabe si de agente o inscrito
         public string? Version { get; set; }   // <--  Se ajusta como tipo de dato string, porque puede incluir simbolos o caracteres alfabeticos
         public string? Prototipo { get; set; } // <-- Tipo de contrato en String
         public string? Numero_Contrato { get; set; }
@@ -15,8 +15,8 @@
         public string? Fecha_Expedicion_Empleado { get; set; }
         public string? Pais_Expedicion_DIAN { get; set; }
         public string? Departamento_Expedicion_DANE { get; set; }
-        public string? Municipio_Expedicion { get; set; }
-        public string? Ciudad_Expedicion { get; set; } // <-- CADENA DE TEXTO - NOMBRE DE LA CIUDAD
+        public string? Ciudad_Expedicion { get; set; }
+        public string? Municipipo_Expedicion_DANE { get; set; } // <-- CADENA DE TEXTO - NOMBRE DE LA CIUDAD
         public string? Apellidos_Empleado { get; set; }
         public string? Nombres_Empleado { get; set; }
         public string? Sede_Empleado { get; set; }
