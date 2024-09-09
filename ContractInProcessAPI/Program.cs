@@ -14,13 +14,13 @@ builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "InProcess - Contratacion", Version = "v2.1" });
 
     // Configurar la autenticación básica para Swagger
     c.AddSecurityDefinition("basic", new OpenApiSecurityScheme
     {
         In = ParameterLocation.Header,
-        Description = "Please enter your username and password in the format: Username:Password",
+        Description = "Por favor, proporcione su nombre de usuario y contraseña para autenticar sus solicitudes a esta API.",
         Name = "Authorization",
         Type = SecuritySchemeType.Http,
         Scheme = "basic"
@@ -92,7 +92,7 @@ app.MapControllers();
 
 app.UseSwaggerUI(c =>
 {
-    c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "InProcess - Contratacion V2");
     c.RoutePrefix = string.Empty; // Configura Swagger en la raíz del sitio
 });
 

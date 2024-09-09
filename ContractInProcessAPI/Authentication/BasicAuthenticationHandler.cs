@@ -74,28 +74,5 @@ namespace ContractInProcessAPI.Authentication
 
             return credentials;
         }
-
-        //private string[] GetCredentialsFromHeader(string header)
-        //{
-        //    try
-        //    {
-        //        var encodedCredentials = header.Substring("Basic ".Length).Trim();
-        //        var credentialBytes = Convert.FromBase64String(encodedCredentials);
-        //        var credentials = Encoding.UTF8.GetString(credentialBytes).Split(':');
-
-        //        if (credentials.Length != 2)
-        //        {
-        //            throw new FormatException("Invalid credentials format");
-        //        }
-
-        //        return credentials;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        // Log the exception
-        //        Logger.LogError(ex, "Error decoding credentials from header");
-        //        throw;
-        //    }
-        //}
     }
 }
