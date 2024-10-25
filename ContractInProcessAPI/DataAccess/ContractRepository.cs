@@ -93,56 +93,83 @@ namespace ContractInProcessAPI.DataAccess
                             Version = "1",
                             Prototipo = "AQUI VA EL NOMBRE DE CONTRATO EN CADENA DE TEXTO", // Modificar según tus necesidades
 
-                            Numero_Contrato = Convert.ToString(result.NUMERO_CONTRATO),
-                            Tipo_Documento_Empleado = Convert.ToString(result.TIPO_DOCUMENTO),
-                            Numero_Documento_Empleado = Convert.ToString(result.CEDULA),
-                            Fecha_Expedicion_Empleado = Convert.ToString(result.FECHA_EXPEDICION),
-                            Pais_Expedicion_DIAN = Convert.ToString(result.PAIS_EXPEDICION_DIAN),
-                            Departamento_Expedicion_DANE = Convert.ToString(result.DPTO_EXPEDICION_DANE),
-                            Ciudad_Expedicion = Convert.ToString(result.MUNICIPIO_EXPEDICION),
-                            Municipipo_Expedicion_DANE = await DeterminarCiudadesKactus(
+                            NumeroContrato = Convert.ToString(result.NUMERO_CONTRATO),
+                            TipoDocumentoEmpleado = Convert.ToString(result.TIPO_DOCUMENTO),
+                            NumeroDocumentoEmpleado = Convert.ToString(result.CEDULA),
+                            FechaExpedicionEmpleado = Convert.ToString(result.FECHA_EXPEDICION),
+                            PaisExpedicionDIAN = Convert.ToString(result.PAIS_EXPEDICION_DIAN),
+                            DepartamentoExpedicionDANE = Convert.ToString(result.DPTO_EXPEDICION_DANE),
+                            CiudadExpedicion = Convert.ToString(result.MUNICIPIO_EXPEDICION),
+                            MunicipioExpedicion = await DeterminarCiudadesKactus(
                                 Convert.ToString(result.PAIS_EXPEDICION_DIAN),
                                 Convert.ToString(result.DPTO_EXPEDICION_DANE),
                                 Convert.ToString(result.MUNICIPIO_EXPEDICION)
                             ),
-                            Apellidos_Empleado = Convert.ToString(result.APELLIDOS),
-                            Nombres_Empleado = Convert.ToString(result.NOMBRES),
-                            Sede_Empleado = Convert.ToString(result.SEDE),
-                            Area_Empleado = Convert.ToString(result.AREA),
-                            Cargo_Empleado = Convert.ToString(result.CARGO),
-                            Email_Institucional_Empleado = Convert.ToString(result.EMAIL_INSTITUCIONAL),
-                            Email_Personal_Empleado = Convert.ToString(result.EMAIL_PERSONAL),
-                            Telefono_Casa_Empleado = Convert.ToString(result.TELEFONO_CASA),
-                            Celular_Empleado = Convert.ToString(result.CELULAR),
-                            Direccion_Casa_Empleado = Convert.ToString(result.DIRECCION_CASA),
-                            Barrio_Empleado = Convert.ToString(result.BARRIO),
-                            Ciudad_Residencia = !string.IsNullOrEmpty(Convert.ToString(result.SEDE)) ? Convert.ToString(result.SEDE).Split(" ")[0] : string.Empty,
-                            Tipo_Contrato_Empleado = Convert.ToString(result.TIPO_CONTRATO),
-                            Fecha_Inicio_Contrato_Empleado = Convert.ToString(result.FEC_CONTRATO),
-                            Fecha_Fin_Contrato_Empleado = string.IsNullOrEmpty(Convert.ToString(result.FEC_FIN)) ? "N/A" : Convert.ToString(result.FEC_FIN),
-                            Salario_Empleado = Convert.ToString(result.SALARIO),
-                            Salario_Empleado_Letras = Conversor.Conversor.NumeroALetras(decimal.Parse(Convert.ToString(result.SALARIO))),
-                            Ciudad_Firma_Contrato = "BOGOTA",
-                            Estado_Empleado = Convert.ToString(result.ESTADO),
-                            Sede_Regional = Convert.ToString(result.SEDE),
-                            Fecha_Conectividad = Convert.ToString(result.CONECTIVIDAD),
-                            Fecha_Personales = Convert.ToString(result.CONECTIVIDAD),
-                            Fecha_Nacimiento = Convert.ToString(result.FECHANACIMIENTO),
-                            Pais_Nacimiento = Convert.ToString(result.PAISNACIMIENTO),
-                            Departamento_Nacimiento = Convert.ToString(result.DPTNACIMIENTO),
-                            Municipio_Nacimiento = Convert.ToString(result.MUNNACIMIENTO),
-                            Lugar_Nacimiento = await DeterminarCiudadesKactus(
+                            ApellidosEmpleado = Convert.ToString(result.APELLIDOS),
+                            NombresEmpleado = Convert.ToString(result.NOMBRES),
+                            SedeEmpleado = Convert.ToString(result.SEDE),
+                            AreaEmpleado = Convert.ToString(result.AREA),
+                            CargoEmpleado = Convert.ToString(result.CARGO),
+                            EmailInstitucionalEmpleado = Convert.ToString(result.EMAIL_INSTITUCIONAL),
+                            EmailPersonalEmpleado = Convert.ToString(result.EMAIL_PERSONAL),
+                            TelefonoCasaEmpleado = Convert.ToString(result.TELEFONO_CASA),
+                            CelularEmpleado = Convert.ToString(result.CELULAR),
+                            DireccionCasaEmpleado = Convert.ToString(result.DIRECCION_CASA),
+                            BarrioEmpleado = Convert.ToString(result.BARRIO),
+                            CiudadResidencia = !string.IsNullOrEmpty(Convert.ToString(result.SEDE)) ? Convert.ToString(result.SEDE).Split(" ")[0] : string.Empty,
+                            TipoContratoEmpleado = Convert.ToString(result.TIPO_CONTRATO),
+                            FechaInicioContratoEmpleado = Convert.ToString(result.FEC_CONTRATO),
+                            FechaFinContratoEmpleado = string.IsNullOrEmpty(Convert.ToString(result.FEC_FIN)) ? "N/A" : Convert.ToString(result.FEC_FIN),
+
+                            //TARGET DESDE DB
+                            DuracionContrato = "POR MAPEAR DESDE DB",
+
+                            SalarioEmpleado = Convert.ToString(result.SALARIO),
+                            SalarioEmpleadoLetras = Conversor.Conversor.NumeroALetras(decimal.Parse(Convert.ToString(result.SALARIO))),
+                            CiudadFirmaContrato = "BOGOTA",
+                            EstadoEmpleado = Convert.ToString(result.ESTADO),
+                            SedeRegional = Convert.ToString(result.SEDE),
+                            FechaConectividad = Convert.ToString(result.CONECTIVIDAD),
+                            FechaPersonales = Convert.ToString(result.CONECTIVIDAD),
+                            FechaNacimiento = Convert.ToString(result.FECHANACIMIENTO),
+                            PaisNacimiento = Convert.ToString(result.PAISNACIMIENTO),
+                            DepartamentoNacimiento = Convert.ToString(result.DPTNACIMIENTO),
+                            MunicipioNacimiento = Convert.ToString(result.MUNNACIMIENTO),
+                            LugarNacimiento = await DeterminarCiudadesKactus(
                                 Convert.ToString(result.PAISNACIMIENTO),
                                 Convert.ToString(result.DPTNACIMIENTO),
                                 Convert.ToString(result.MUNNACIMIENTO)
                             ) ?? Convert.ToString(result.MUNICIPIONACIMIENTO),
-                            Departamento_Personales = "BOGOTA",
-                            Firma_Electronica = "-", // Confirmar que debe ser siempre "-"
-                            Tercero = "POR ASIGNAR VALOR TERCERO DESDE DB",
-                            Empresa_Permisos = "POR ASIGNAR VALOR EMPRESA PERMISOS DESDE DB",
-                            Empresa = "POR ASIGNAR VALOR DE EMPRESA DESDE DB",
-                            Elaboración = Convert.ToString(result.CREATEDBY),
-                            Fecha_Elaboracion = DateTime.Now.ToString()
+                            DepartamentoPersonales = "BOGOTA",
+
+                            //TARGET DESDE DB
+                            CentroDeCostos = Convert.ToString(result.NOM_CCOS),     // <-- Validar que el dato venga de aca
+                            ClaseDeNomina = Convert.ToString(result.NOM_TNOM),      // <-- Validar que el dato venga de aca
+                            FechaFinMarcador = "POR MAPEAR DESDE DB",
+                            FirmaElectronicaHtml2 = "POR MAPEAR DESDE DB",
+                            TipoContrato = "POR MAPEAR DESDE DB",
+                            InsertarEmpresa = "POR MAPEAR DESDE DB",
+                            CodigoParaWord = "POR MAPEAR DESDE DB",
+                            FirmaElectronicaMod7 = "POR MAPEAR DESDE DB",
+                            FirmaCapturadaMod7 = "POR MAPEAR DESDE DB",
+
+                            Tercero = "POR MAPEAR DESDE DB",
+
+                            //TARGET DESDE DB
+                            FirmaElectronicaHtml = "POR MAPEAR DESDE DB",
+                            ValidacionTipoCE = "POR MAPEAR DESDE DB",
+                            CodContrato = "POR MAPEAR DESDE DB",
+
+                            EmpresaPermisos = "POR MAPEAR DESDE DB",
+                            Empresa = "POR MAPEAR DESDE DB",
+
+                            FirmaCapturada2Mod7 = "POR MAPEAR DESDE DB",
+                            CopiarPDFs = "POR MAPEAR DESDE DB",
+                            FirmaElectronica2Mod7 = "POR MAPEAR DESDE DB",
+                            DatosConcatenados = "POR MAPEAR DESDE DB",
+                            DescripcionRegional = "POR MAPEAR DESDE DB",
+                            Elaboracion = "POR MAPEAR DESDE DB",
+                            FechaElaboracion = "POR MAPEAR DESDE DB"
                         };
 
                         empleados.Add(empleado);
